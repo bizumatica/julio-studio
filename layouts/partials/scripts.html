@@ -1,0 +1,22 @@
+{{/* Carrega o script de digitação com proteção contra erro */}}
+{{ with resources.Get "js/main.js" }}
+    {{ $js := . | minify | fingerprint }}
+    <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+{{ end }}
+
+<script>
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            const toast = document.getElementById('copy-toast');
+            toast.classList.remove('opacity-0');
+            toast.classList.add('opacity-100');
+            
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0');
+            }, 2000);
+        }).catch(err => {
+            console.error('Erro ao copiar: ', err);
+        });
+    }
+</script>

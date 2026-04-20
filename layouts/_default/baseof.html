@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    {{ partial "head.html" . }}
+</head>
+<body class="bg-[#0a0a0a] text-white">
+    {{ partial "header.html" . }}
+    
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    {{ partial "footer.html" . }}
+
+    {{ partial "scripts.html" . }}
+</body>
+<script>
+    // Seleciona todos os links que apontam para uma ID interna
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                // Calcula a posição e rola suavemente
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Atualiza a URL sem "pular" a página
+                history.pushState(null, null, targetId);
+            }
+        });
+    });
+</script>
+</html>

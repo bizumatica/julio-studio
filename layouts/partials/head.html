@@ -1,0 +1,99 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+<meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+<meta name="author" content="Julio-Studio" />
+
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}" />
+<meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+<meta property="og:image" content="{{ .Site.BaseURL }}images/card.jpg" />
+<meta property="og:url" content="{{ .Permalink }}" />
+
+<link rel="icon" href="/favicon.ico">
+
+<link href="/_pagefind/pagefind-ui.css" rel="stylesheet">
+<script src="/_pagefind/pagefind-ui.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+    :root {
+        /* Variáveis do Pagefind */
+        --pagefind-ui-primary: #f97316;
+        --pagefind-ui-text: #d4d4d4;
+        --pagefind-ui-background: #0a0a0a;
+        --pagefind-ui-border: #1a1a1a;
+        --pagefind-ui-tag: #1a1a1a;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        scroll-behavior: smooth;
+        background-color: #050505;
+        color: #fff;
+    }
+    
+    .glass {
+        background: rgba(10, 10, 10, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .text-gradient {
+        background: linear-gradient(135deg, #ffffff 30%, #636363 100%);
+        -webkit-background-clip: text;
+        background-clip: text;  
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+        padding-right: 0.05em; /* Evita corte no final da frase */
+    }
+
+    /* Customização Extra Pagefind */
+    .pagefind-ui__search-input {
+        background-color: #000 !important;
+        border-radius: 8px !important;
+        font-family: 'JetBrains Mono', monospace !important;
+        font-size: 0.9rem !important;
+    }
+
+    .pagefind-ui__result-link {
+        color: #fff !important;
+        font-weight: 600 !important;
+    }
+
+    .pagefind-ui__result-excerpt {
+        color: #737373 !important;
+        font-size: 0.85rem !important;
+    }
+
+    @keyframes soft-pulse {
+        0%, 100% { transform: scale(1.02); box-shadow: 0 0 20px rgba(249, 115, 22, 0.1); }
+        50% { transform: scale(1.04); box-shadow: 0 0 35px rgba(249, 115, 22, 0.3); }
+    }
+
+    .group:hover {
+        animation: soft-pulse 2s infinite ease-in-out !important;
+        z-index: 10 !important;
+        position: relative !important;
+    }
+</style>
+
+<link rel="canonical" href="{{ .Permalink }}">
+
+<style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    body, html { overflow-x: hidden; width: 100%; }
+</style>
+
+{{ if .Params.math }}
+  {{ partial "math.html" . }}
+{{ end }}

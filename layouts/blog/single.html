@@ -1,0 +1,97 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "{{ .Title }}",
+  "image": "{{ .Params.images | absURL }}",
+  "author": {
+    "@type": "Person",
+    "name": "Julio Studio"
+  },
+  "datePublished": "{{ .Date.Format "2006-01-02" }}",
+  "description": "{{ .Description | default .Summary }}"
+}
+</script>
+
+{{ define "main" }}
+<style>
+    .prose pre {
+        background-color: #0a0a0a !important;
+        border: 1px solid #1a1a1a;
+        padding: 1.5rem !important;
+        border-radius: 0.75rem;
+        position: relative;
+        margin-top: 2rem !important;
+    }
+
+    /* Simulação dos botões de fechar/minimizar do terminal */
+    .prose pre::before {
+        content: "•••";
+        position: absolute;
+        top: 10px;
+        left: 15px;
+        color: #333;
+        font-size: 20px;
+        letter-spacing: 3px;
+        line-height: 1;
+    }
+
+    .prose blockquote {
+        border-left-color: #f97316 !important;
+        font-style: italic;
+        background: rgba(249, 115, 22, 0.05);
+        padding: 1.5rem;
+        border-radius: 0 0.75rem 0.75rem 0;
+        color: #d4d4d4;
+    }
+
+    /* Ajuste para imagens não estourarem o layout */
+    .prose img {
+        border-radius: 1rem;
+        border: 1px solid #1a1a1a;
+    }
+</style>
+
+<div class="absolute inset-0 z-[-1] ..."></div>
+
+<main class="container mx-auto px-6 py-24 md:py-40">
+    <div class="mb-12 border-b border-neutral-900 pb-8">
+        <div class="flex items-center gap-3 text-neutral-500 font-mono text-xs mb-4">
+            <span class="text-green-500">➜</span>
+            <span class="text-orange-500">~/juliostudio/blog</span>
+            <span class="text-white">$ cat {{ .File.LogicalName | default "post.md" }}</span>
+        </div>
+        
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-4" data-pagefind-meta="title">
+            {{ .Title }}
+        </h1>
+
+        <div class="flex flex-wrap items-center gap-4 text-neutral-500 font-mono text-[10px] uppercase">
+            <span data-pagefind-meta="date">Publicado: {{ .Date.Format "02/01/2006" }}</span>
+            <span class="text-neutral-800">|</span>
+            <span>Leitura: {{ .ReadingTime }} min</span>
+            {{ with .Params.categories }}
+                <span class="text-orange-500/50" data-pagefind-filter="categoria">#{{ index . 0 }}</span>
+            {{ end }}
+        </div>
+    </div>
+
+    <article data-pagefind-body class="prose prose-invert prose-orange max-w-none font-sans leading-relaxed text-neutral-300
+        prose-headings:text-white prose-headings:tracking-tighter prose-headings:font-bold
+        prose-code:text-orange-400 prose-code:font-mono prose-code:bg-neutral-900/50 prose-code:px-1 prose-code:rounded
+        prose-pre:bg-neutral-950 prose-pre:border prose-pre:border-neutral-900 prose-pre:shadow-2xl">
+        
+        {{ .Content }}
+        
+    </article>
+
+    <div class="mt-20 pt-8 border-t border-neutral-900 flex justify-between items-center">
+        <a href="/blog" class="text-orange-500 font-mono text-sm hover:underline">
+            <span class="mr-2">←</span> cd ..
+        </a>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-neutral-600 font-mono text-[10px] hover:text-white transition-colors">
+            [ TOP_OF_PAGE ]
+        </button>
+    </div>
+</main>
+{{ end }}

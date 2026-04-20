@@ -1,0 +1,28 @@
+baseURL = 'https://juliostudio.dev.br/'
+languageCode = 'pt-br'
+title = 'Julio-Studio | Design & Performance'
+
+[params]
+    description = "Design, Performance Web e Automatização"
+    images = ["images/card.jpg"]
+    site_version = "V1.2.2"
+    
+    # Exemplos de Landing Pages
+    landing_page_examples = [
+        { name = "Bizumática", url = "https://bizumatica.com.br/" },
+        { name = "JulioStudio", url = "https://juliostudio.dev.br/" },
+        { name = "Lar Espírita Cristão", url = "https://lecitatiba.com.br/" }
+    ]
+
+    # Links das Redes Sociais
+    whatsapp = "5511964881236"
+    github = "https://github.com/bizumatica"
+    gitlab = "https://gitlab.com/BackInBash/julio-studio"
+    
+# Configurações de renderização para KaTeX e Shortcodes
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true  # Permite renderizar o HTML dos nossos Shortcodes (como o bizu)
+    [markup.goldmark.extensions]
+      typographer = true

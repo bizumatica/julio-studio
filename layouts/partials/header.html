@@ -1,0 +1,41 @@
+<header class="glass sticky top-0 z-50 w-full overflow-hidden">
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="/" class="flex items-center gap-1.5 md:gap-2 hover:opacity-90 transition shrink-0">
+            <div class="h-7 w-7 bg-orange-500 rounded-lg flex items-center justify-center font-bold text-black text-[10px] shrink-0">
+                JS
+            </div>
+            <h1 class="text-[12px] md:text-xl font-bold tracking-tighter uppercase whitespace-nowrap">
+                JULIO<span class="text-orange-500">_STUDIO</span>
+            </h1>
+        </a>
+        
+        <div class="flex items-center gap-4 md:gap-6 ml-auto">
+            
+            <a href="#landing-pages" class="text-neutral-400 hover:text-white transition-colors flex items-center gap-1" title="Serviços">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:hidden text-neutral-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span class="hidden md:inline text-sm">Serviços</span>
+            </a>
+
+            <a href="#backinbash_tools" class="text-neutral-400 hover:text-white transition-colors flex items-center gap-1" title="Ferramentas">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:hidden text-neutral-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 00-1 1v1a2 2 0 11-4 0v-1a1 1 0 00-1-1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+                </svg>
+                <span class="hidden md:inline text-sm">Ferramentas</span>
+            </a>
+            
+            <a href="#bizumatica_archive" class="text-xs md:text-sm text-orange-500/80 hover:text-orange-500 font-bold transition-colors tracking-tight">
+                Blog
+            </a>
+
+            <div class="flex items-center border-l border-neutral-800 pl-3 md:pl-0 md:border-none">
+                {{ partial "search.html" . }}
+            </div>
+
+            <span class="hidden lg:inline px-3 py-1 rounded-full border border-neutral-800 text-[10px] font-mono text-neutral-500 uppercase tracking-widest bg-neutral-900/50">
+                {{ $.Site.Params.site_version }}
+            </span>
+        </div>
+    </nav>
+</header>
