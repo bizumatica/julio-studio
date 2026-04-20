@@ -1,5 +1,0 @@
-# Redirecionar o subdomínio padrão do Cloudflare para o domínio oficial
-https://juliostudio.pages.dev/* https://juliostudio.dev.br/:splat 301!
-
-# Redirecionar a versão com WWW para a versão sem WWW (Canônica)
-https://www.juliostudio.dev.br/* https://juliostudio.dev.br/:splat 301!
