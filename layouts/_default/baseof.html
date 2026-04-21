@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="dark">
 <head>
     {{ partial "head.html" . }}
 </head>
-<body class="bg-[#0a0a0a] text-white">
+<body class="bg-[#050505] text-white antialiased">
     {{ partial "header.html" . }}
     
     <main>
@@ -12,28 +12,21 @@
 
     {{ partial "footer.html" . }}
 
-    {{ partial "scripts.html" . }}
-</body>
-<script>
-    // Seleciona todos os links que apontam para uma ID interna
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-
-            if (targetElement) {
-                // Calcula a posição e rola suavemente
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                
-                // Atualiza a URL sem "pular" a página
-                history.pushState(null, null, targetId);
-            }
+    <script>
+        // Seu script de scroll suave consolidado
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId.startsWith("#")) {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        history.pushState(null, null, targetId);
+                    }
+                }
+            });
         });
-    });
-</script>
+    </script>
+</body>
 </html>

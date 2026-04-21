@@ -24,7 +24,7 @@ jobs:
         # 1. Gera o site na pasta /public
         # 2. npx pagefind cria o índice de busca dentro de /public/_pagefind
         run: |
-          hugo --gc --minify
+          hugo --gc --minify --baseURL "https://juliostudio.dev.br/"
           npx pagefind --site public
 
       - name: Deploy to GitHub Pages
