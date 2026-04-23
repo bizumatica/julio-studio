@@ -3,7 +3,7 @@ canonifyURLs = true
 relativeURLs = false
 languageCode = 'pt-br'
 title = 'Julio-Studio | Design & Performance'
-disableKinds = ["taxonomy", "term", "sections"]
+disableKinds = ["taxonomy", "term"]
 
 [params]
     description = "Design, Performance Web e Automatização"
@@ -39,4 +39,8 @@ disableKinds = ["taxonomy", "term", "sections"]
   removeAccents = true
 
 [permalinks]
-  blog = "/blog/:contentbasename/"
+  blog = "/blog/:slug/"
+
+[build]
+  useResourceCacheWhen = "never"
+  renderDrafts = false

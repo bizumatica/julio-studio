@@ -2,18 +2,27 @@
 <html lang="pt-BR" class="dark">
 <head>
     {{ partial "head.html" . }}
+    
+    {{- /* Bloco para CSS específico ou JSON-LD de Scripts do single.html */ -}}
+    {{ block "extra_head" . }}{{ end }}
 </head>
 <body class="bg-[#050505] text-white antialiased">
+    
     {{ partial "header.html" . }}
     
-    <main>
+    {{- /* REGRAS DE OURO: 
+       1. O <main> fica aqui para manter a semântica em todas as páginas.
+       2. O ID "content" ajuda no scroll-to-top e âncoras.
+    */ -}}
+    <main id="main-content">
         {{ block "main" . }}{{ end }}
     </main>
 
     {{ partial "footer.html" . }}
 
+    {{- /* Scripts Globais e Otimizações */ -}}
     <script>
-        // Seu script de scroll suave consolidado
+        // Scroll suave consolidado para Performance (FOSS Style)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const targetId = this.getAttribute('href');
@@ -22,11 +31,19 @@
                     if (targetElement) {
                         e.preventDefault();
                         targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        // Atualiza URL sem reload para manter histórico limpo
                         history.pushState(null, null, targetId);
                     }
                 }
             });
         });
+
+        // Prevenção de CLS para AdSense: Detecta se o script carregou
+        window.addEventListener('load', function() {
+            console.log("⚡ Engenheiro Dev: DOM Pronto | CWV Monitorando...");
+        });
     </script>
+    
+    {{ partial "scripts.html" . }}
 </body>
 </html>

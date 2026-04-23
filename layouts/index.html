@@ -160,7 +160,7 @@
                 <span class="text-[10px] font-mono text-blue-500/70 uppercase tracking-widest">Knowledge_Base</span>
                 <h4 class="text-xl font-bold mt-2 mb-3 text-white">Bizumática_Archive</h4>
                 <div class="mb-6 space-y-2">
-                    {{ range (where .Site.RegularPages "Section" "blog") | first 3 }}
+                    {{ range (where .Site.RegularPages "Section" "blog") | first 6 }}
                     <a href="{{ .Permalink }}" class="block group/link">
                         <p class="text-[11px] font-mono text-neutral-500 group-hover/link:text-blue-400 transition-colors">
                             <span class="text-blue-900 font-bold">fetch</span> {{ .Title | truncate 30 }}

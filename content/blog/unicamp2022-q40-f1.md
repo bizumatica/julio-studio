@@ -1,11 +1,11 @@
 ---
 title: "Unicamp 2022: Largura do Canal de Suez"
-author: "Julio Prata"
-date: 2026-01-30T08:00:00-03:00
+date: 2026-01-30 # Data no passado para evitar qualquer flag de futuro
 math: true
 draft: false
-slug: "unicamp2022-q40-f1"
-tags: ["matemática"]
+type: "blog"
+layout: "single"
+url: "/blog/unicamp2022-q40-f1/"
 categories: ["mathematics"]
 ---
 
