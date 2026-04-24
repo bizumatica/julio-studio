@@ -1,22 +1,27 @@
-{{/* Carrega o script de digitação com proteção contra erro */}}
+{{/* Script principal do site (Efeito Digitação, etc) */}}
 {{ with resources.Get "js/main.js" }}
     {{ $js := . | minify | fingerprint }}
     <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
 {{ end }}
 
 <script>
+    /**
+     * Engine de Cópia: Interage com a Clipboard API e dispara o Toast
+     */
     function copyToClipboard(text) {
         navigator.clipboard.writeText(text).then(() => {
             const toast = document.getElementById('copy-toast');
-            toast.classList.remove('opacity-0');
-            toast.classList.add('opacity-100');
+            if (!toast) return;
+
+            toast.classList.replace('opacity-0', 'opacity-100');
+            toast.classList.replace('translate-y-4', 'translate-y-0');
             
             setTimeout(() => {
-                toast.classList.remove('opacity-100');
-                toast.classList.add('opacity-0');
+                toast.classList.replace('opacity-100', 'opacity-0');
+                toast.classList.replace('translate-y-0', 'translate-y-4');
             }, 2000);
         }).catch(err => {
-            console.error('Erro ao copiar: ', err);
+            console.error('Runtime_Error: Clipboard access denied', err);
         });
     }
 </script>

@@ -1,0 +1,28 @@
+{
+  "name": "julio-studiov2",
+  "version": "1.0.0",
+  "description": "![Status](https://img.shields.io/badge/Status-Ativo-brightgreen) ![Hugo](https://img.shields.io/badge/SSG-Hugo-ff69b4?logo=hugo) ![License](https://img.shields.io/badge/License-MIT-blue)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bizumatica/julio-studio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/bizumatica/julio-studio/issues"
+  },
+  "homepage": "https://github.com/bizumatica/julio-studio#readme",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.4",
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.10",
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "^4.2.4"
+  }
+}

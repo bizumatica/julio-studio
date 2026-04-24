@@ -1,81 +1,54 @@
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-<meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
-<meta name="author" content="Julio-Studio" />
-<link rel="canonical" href="{{ .Permalink }}">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+    <meta name="author" content="Julio-Studio" />
+    <link rel="canonical" href="{{ .Permalink }}">
 
-<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
-<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}" />
-<meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
-<meta property="og:image" content="{{ "images/card.jpg" | absURL }}" />
-<meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+    <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}" />
+    <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+    <meta property="og:image" content="{{ "images/card.jpg" | absURL }}" />
+    <meta property="og:url" content="{{ .Permalink }}" />
 
-<link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.ico">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
 
-<link href="/_pagefind/pagefind-ui.css" rel="stylesheet">
-<script src="/_pagefind/pagefind-ui.js" type="text/javascript"></script>
+    <link href="/_pagefind/pagefind-ui.css" rel="stylesheet">
+    <script src="/_pagefind/pagefind-ui.js" type="text/javascript"></script>
 
-<script src="https://cdn.tailwindcss.com"></script>
+    {{ $options := dict "config" "postcss.config.js" }}
+    {{ with resources.Get "css/main.css" }}
+        {{ $style := . | postCSS $options | minify | fingerprint }}
+        <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" crossorigin="anonymous">
+    {{ else }}
+        {{ warnf "Build Alert: assets/css/main.css não encontrado. O layout será quebrado." }}
+    {{ end }}
 
-<style>
-    :root {
-        /* Tema Pagefind combinando com o site */
-        --pagefind-ui-primary: #f97316;
-        --pagefind-ui-text: #d4d4d4;
-        --pagefind-ui-background: #0a0a0a;
-        --pagefind-ui-border: #1a1a1a;
-        --pagefind-ui-tag: #1a1a1a;
-    }
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (typeof PagefindUI !== 'undefined') {
+                new PagefindUI({
+                    element: "#search-container",
+                    bundlePath: "/_pagefind/",
+                    showSubResults: true,
+                    translations: { 
+                        placeholder: "grep /archive/...",
+                        clear_search: "clear"
+                    }
+                });
+            }
+        });
+    </script>
 
-    body {
-        font-family: 'Inter', sans-serif;
-        -webkit-font-smoothing: antialiased;
-        background-color: #050505;
-        color: #fff;
-        overflow-x: hidden;
-    }
-
-    .text-gradient {
-        background: linear-gradient(135deg, #ffffff 30%, #636363 100%);
-        -webkit-background-clip: text;
-        background-clip: text;  
-        -webkit-text-fill-color: transparent;
-    }
-
-    /* Customização da UI de Busca (Grep Style) */
-    .pagefind-ui__search-input {
-        background-color: #000 !important;
-        border-radius: 8px !important;
-        font-family: 'JetBrains Mono', monospace !important;
-        font-size: 0.9rem !important;
-    }
-
-    .pagefind-ui__result-link { color: #fff !important; }
-    .pagefind-ui__result-excerpt { color: #737373 !important; }
+    {{- block "extra_meta" . -}}{{- end -}}
     
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-</style>
-
-<script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-        if (typeof PagefindUI !== 'undefined') {
-            new PagefindUI({
-                element: "#search-container",
-                bundlePath: "/_pagefind/",
-                showSubResults: true,
-                translations: { placeholder: "grep /archive/..." }
-            });
-        }
-    });
-</script>
-
-{{- block "extra_meta" . -}}{{- end -}}
-{{ if .Params.math }}
-  {{ partial "math.html" . }}
-{{ end }}
+    {{ if .Params.math }}
+        {{ partial "math.html" . }}
+    {{ end }}
+</head>
