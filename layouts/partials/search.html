@@ -12,10 +12,12 @@
             <button id="close-search" class="text-neutral-500 hover:text-white font-mono text-[10px] uppercase transition-colors">[ ESC ]</button>
         </div>
         
-        <div id="search-ui" class="p-4 min-h-[300px] max-h-[70vh] overflow-y-auto no-scrollbar">
-            </div>
+        <div id="search-ui" class="p-4 min-h-[300px] max-h-[70vh] overflow-y-auto no-scrollbar"></div>
     </div>
 </div>
+
+<link href="/_pagefind/pagefind-ui.css" rel="stylesheet">
+<script src="/_pagefind/pagefind-ui.js"></script>
 
 <script>
     window.addEventListener('DOMContentLoaded', () => {
@@ -23,10 +25,20 @@
         const btn = document.getElementById('search-button');
         const close = document.getElementById('close-search');
 
+        // Inicializa o Pagefind UI
+        const pagefind = new PagefindUI({ 
+            element: "#search-ui", 
+            showImages: false,
+            translations: {
+                placeholder: "Digite para buscar..."
+            }
+        });
+
         const openSearch = () => {
             modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Trava o scroll do fundo
+            document.body.style.overflow = 'hidden';
             setTimeout(() => {
+                // Seleciona o input criado pelo Pagefind e foca nele
                 const input = document.querySelector('.pagefind-ui__search-input');
                 if (input) input.focus();
             }, 100);
@@ -34,22 +46,23 @@
 
         const closeSearch = () => {
             modal.classList.add('hidden');
-            document.body.style.overflow = ''; // Libera o scroll
+            document.body.style.overflow = '';
         };
 
         btn.addEventListener('click', openSearch);
         close.addEventListener('click', closeSearch);
 
-        // Atalhos de Teclado
         window.addEventListener('keydown', (e) => {
             if (e.key === '/' && modal.classList.contains('hidden')) {
-                e.preventDefault();
-                openSearch();
+                // Se não houver outros inputs focados, abre a busca
+                if (document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+                    e.preventDefault();
+                    openSearch();
+                }
             }
             if (e.key === 'Escape') closeSearch();
         });
 
-        // Fechar ao clicar fora do modal
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeSearch();
         });
