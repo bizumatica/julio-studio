@@ -1,23 +1,36 @@
 ---
-title: "Proposta: nexus-cyber"
-date: 2026-04-24T16:28:20-03:00
+title: "Nexus Cyber Security"
+type: "lp"
+# Visual do Hero
 hero_title_white: "Solução Digital para"
-hero_title_orange: "Nexus Cyber Security"
-cta_text: "Aprovar_Projeto"
-status_text: "Proposal_Active"
-# Informações Internas (Não aparecem no Hero, mas podem ser usadas no Content)
+hero_title_orange: "Cyber_Security"
+status_text: "PROPOSAL_ACTIVE" # Ou "READY_TO_DEPLOY"
+cta_text: "APROVAR_PROJETO"
+
+# Dados de Negócio (Campos padronizados)
+client_name: "Nexus"
 price_estimate: 1500
-client_whatsapp: ""
-draft: true
+delivery_days: 7
+whatsapp_msg: "Olá Julio, aprovo a proposta da Nexus!"
+
+draft: false
 ---
 
-### 📋 Escopo da Proposta
+### 📋 Escopo Técnico: Engine de Conversão
 
-Este documento detalha a implementação da Landing Page de alta performance para **Nexus Cyber Security**.
+Para a **Nexus**, não entregaremos um site, mas uma interface de autoridade técnica.
 
-#### O que está incluso:
-* **Infraestrutura:** Hospedagem Global via CDN.
-* **Velocidade:** Carregamento inferior a 1.5s.
-* **Conversão:** Botão direto para seu WhatsApp.
+{{< bizu >}}
+**ANALYSIS:** No setor de Cyber Security, a confiança é transmitida pela performance. Uma página lenta sinaliza uma infraestrutura vulnerável. Nossa Engine foca em latência zero.
+{{< /bizu >}}
+
+#### Hardening & Performance:
+* **Stack Estática:** Imunidade a ataques de SQL Injection e força bruta.
+* **Global Edge:** Distribuição via CDN (Cloudflare) para acesso instantâneo em qualquer lugar.
+
+{{< box >}}
+**Investimento:** R$ {{< param price_estimate >}},00
+**Prazo:** {{< param delivery_days >}} dias úteis após aprovação.
+{{< /box >}}
 
 ---

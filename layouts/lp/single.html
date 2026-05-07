@@ -17,14 +17,34 @@
             <span class="text-orange-500">{{ .Params.hero_title_orange }}</span>
         </h1>
 
-        <a href="https://wa.me/{{ .Site.Params.whatsapp }}" class="animate-cta-orange px-10 py-4 bg-white text-black font-bold rounded-full hover:bg-orange-500 hover:text-white transition-all duration-300 uppercase text-xs tracking-widest">
+        {{ $wa_msg := .Params.whatsapp_msg | default "Olá Julio, quero saber mais sobre seus serviços!" }}
+        <a href="https://wa.me/{{ .Site.Params.whatsapp }}?text={{ $wa_msg | urlquery }}" 
+           class="animate-cta-orange px-10 py-4 bg-white text-black font-bold rounded-full hover:bg-orange-500 hover:text-white transition-all duration-300 uppercase text-xs tracking-widest">
             {{ .Params.cta_text | default "Start_Project" }}
         </a>
     </section>
 
     <section class="container mx-auto px-6 py-20 border-t border-neutral-900/30">
-        <div class="prose prose-invert prose-orange max-w-none">
-            {{ .Content }}
+        <div class="max-w-4xl mx-auto"> {{ if .Params.price_estimate }}
+            <div class="mb-12 grid grid-cols-1 md:grid-cols-3 gap-6 p-6 border border-white/5 bg-neutral-900/50 rounded-lg font-mono">
+                <div>
+                    <span class="block text-[10px] text-neutral-500 uppercase">Investimento_Estimado</span>
+                    <span class="text-xl text-orange-500 font-bold">R$ {{ .Params.price_estimate }},00</span>
+                </div>
+                <div>
+                    <span class="block text-[10px] text-neutral-500 uppercase">Prazo_Entrega</span>
+                    <span class="text-xl text-white font-bold">{{ .Params.delivery_days | default "7" }} dias</span>
+                </div>
+                <div>
+                    <span class="block text-[10px] text-neutral-500 uppercase">ID_Proposta</span>
+                    <span class="text-xl text-white font-bold">#{{ now.Format "2006" }}-{{ .Params.client_name | default "STUDIO" }}</span>
+                </div>
+            </div>
+            {{ end }}
+
+            <div class="prose prose-invert prose-orange max-w-none prose-p:text-neutral-400 prose-headings:tracking-tighter">
+                {{ .Content }}
+            </div>
         </div>
     </section>
 </div>
