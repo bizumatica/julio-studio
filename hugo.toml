@@ -1,7 +1,6 @@
 baseURL = 'https://juliostudio.dev.br/'
 canonifyURLs = true
 relativeURLs = false
-languageCode = 'pt-br'
 title = 'Julio-Studio | Design & Performance'
 disableKinds = ["taxonomy", "term"]
 
@@ -21,6 +20,13 @@ disableKinds = ["taxonomy", "term"]
     whatsapp = "5511964881236"
     github = "https://github.com/bizumatica"
     gitlab = "https://gitlab.com/BackInBash/julio-studio"
+
+[languages]
+  [languages.pt-br]
+    contentDir = "content"
+    languageName = "Português"
+    weight = 1
+    locale = "pt-br"
     
 # Configurações de renderização para KaTeX e Shortcodes
 [markup]

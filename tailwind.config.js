@@ -3,14 +3,10 @@ module.exports = {
   content: [
     "./layouts/**/*.html",
     "./content/**/*.md",
-    "./assets/js/**/*.js",
+    "./assets/**/*.js",
   ],
   theme: {
-    extend: {
-      colors: {
-        'julio-orange': '#f97316',
-      }
-    },
+    extend: {},
   },
   plugins: [],
 }

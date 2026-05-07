@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Configuração de Legado (Opcional): 
    Se você tiver cores ou temas customizados no tailwind.config.js, 
