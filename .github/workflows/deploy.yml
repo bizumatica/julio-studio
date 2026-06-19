@@ -1,36 +1,58 @@
-name: Deploy Hugo with Pagefind
+name: Pipeline de Deploy Julio Studio (Nativo Ultra-Fast)
 
 on:
   push:
-    branches: [main] # Dispara sempre que você der push na main
+    branches:
+      - main
+  workflow_dispatch:
+
+# Permissões estritas exigidas pelo novo GitHub Pages nativo
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Garante que não haja dois deploys atropelando um ao outro
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  build-deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
     steps:
-      - name: Checkout
+      - name: 📥 Checkout do Código-Fonte
         uses: actions/checkout@v4
         with:
-          submodules: recursive # Garante que temas em submodulos sejam baixados
-          fetch-depth: 0         # Necessário para o Hugo ler datas de commits
+          submodules: recursive
+          fetch-depth: 1 # Máxima velocidade: clone raso (sem histórico pesado)
 
-      - name: Setup Hugo
+      - name: 🛠️ Configurar Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'latest'
-          extended: true         # Necessário para a maioria dos temas modernos
+          hugo-version: 'latest' # Puxa sempre o core atualizado e estável
+          extended: true
 
-      - name: Build and Index
-        # 1. Gera o site na pasta /public
-        # 2. npx pagefind cria o índice de busca dentro de /public/_pagefind
+      - name: 🏗️ Compilar Site Estático
+        run: hugo --gc --minify --cleanDestinationDir --baseURL "https://juliostudio.dev.br/"
+
+      - name: ⚙️ Compliance Check Ads & SEO
         run: |
-          hugo --gc --minify --baseURL "https://juliostudio.dev.br/"
-          npx pagefind --site public --output-subdir _pagefind
+          if [ ! -f "public/ads.txt" ]; then 
+            echo "::warning::Aviso: ads.txt não detectado. Ignore se ainda não configurou o AdSense."
+          fi
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      # Deploy nativo moderno através de APIs oficiais do GitHub (Zero lixo no repositório)
+      - name: 📦 Upload do Artefato (GitHub Pages Nativo)
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          cname: juliostudio.dev.br  # <--- Mantém o domínio vivo e evita erro 404
-          publish_branch: gh-pages   # Branch onde os arquivos prontos residirão
+          path: ./public
+
+      - name: 🚀 Deploy para GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

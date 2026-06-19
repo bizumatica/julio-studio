@@ -1,14 +1,23 @@
 {{ define "main" }}
-<article class="container mx-auto px-6 py-20 max-w-3xl">
-    <header class="mb-12 border-b border-neutral-900 pb-8">
-        <h1 class="text-3xl md:text-5xl font-bold text-white">{{ .Title }}</h1>
-        <div class="text-neutral-600 font-mono text-[10px] mt-4">
-            $ date: {{ .Date.Format "2006-01-02" }}
-        </div>
-    </header>
+<main class="min-h-screen bg-[#0b0f19] py-12 md:py-20 px-4 md:px-8">
+    <article class="max-w-3xl mx-auto font-mono text-slate-200">
+        
+        <!-- Cabeçalho da Página Interna (Lógica Original Mantida) -->
+        <header class="mb-12 border-b border-slate-800 pb-8">
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight uppercase leading-tight">
+                {{ .Title }}
+            </h1>
+            <div class="text-slate-500 text-[10px] mt-4 tracking-wider flex items-center gap-2">
+                <span class="text-cyan-500">$</span> date_published: {{ .Date.Format "2006-01-02" }}
+            </div>
+        </header>
 
-    <div class="prose prose-invert prose-orange max-w-none leading-relaxed">
-        {{ .Content }}
-    </div>
-</article>
+        <!-- Área de Conteúdo Dinâmico -->
+        <!-- Carrega a classe nativa 'markdown-body' definida limpa no seu css -->
+        <div class="markdown-body">
+            {{ .Content }}
+        </div>
+
+    </article>
+</main>
 {{ end }}

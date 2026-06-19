@@ -2,135 +2,142 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Configuração de Legado (Opcional): 
-   Se você tiver cores ou temas customizados no tailwind.config.js, 
-   descomente a linha abaixo. Caso contrário, a v4 detecta tudo automaticamente.
-*/
-/* @config "../../tailwind.config.js"; */
-
 /* ==========================================================================
-   LAYER BASE: Reset e Estilos Globais
+   LAYER BASE: Paleta de Cores Real do JulioStudio estilo Hacker
    ========================================================================== */
 @layer base {
     body {
-        font-family: 'Inter', sans-serif;
-        @apply bg-[#050505] text-white antialiased overflow-x-hidden;
+        font-family: 'JetBrains Mono', 'Inter', monospace;
+        /* O azul escuro de fundo idêntico ao da imagem */
+        background-color: #0f141c;
+        /* Texto claro contrastante padrão */
+        @apply text-slate-100 antialiased overflow-x-hidden;
     }
 
-    /* Estilo para fórmulas matemáticas (Katex) */
-    .katex-display {
-        @apply overflow-x-auto overflow-y-hidden py-2;
-        /* Lógica no-scrollbar embutida para evitar erro de @apply */
-        -ms-overflow-style: none;
-        scrollbar-width: none;
+    p, span, li {
+        @apply text-slate-300;
     }
-    .katex-display::-webkit-scrollbar {
-        display: none;
+
+    /* Títulos em branco puro, limpos e nítidos */
+    h1, h2, h3, h4, h5, h6 {
+        @apply text-white tracking-tight font-bold;
     }
 }
 
 /* ==========================================================================
-   LAYER COMPONENTS: UI e Elementos do Julio-Studio
+   LAYER COMPONENTS: Elementos de Interface Mapeados
    ========================================================================== */
 @layer components {
     
-    /* --- Layout & Glassmorphism --- */
+    /* --- Topo Fixo Combinando com o Background --- */
     .glass {
-        background-color: rgba(5, 5, 5, 0.75);
-        backdrop-filter: blur(12px) saturate(180%);
-        -webkit-backdrop-filter: blur(12px) saturate(180%);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        @apply sticky top-0 z-50 w-full;
+        background-color: rgba(15, 20, 28, 0.95);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        @apply sticky top-0 z-50 w-full border-b border-slate-800;
     }
 
-    .text-gradient {
-        background: linear-gradient(135deg, #ffffff 30%, #636363 100%);
-        -webkit-background-clip: text;
-        background-clip: text;  
-        -webkit-text-fill-color: transparent;
+    /* --- Os Cards Sólidos e Elevados da Imagem --- */
+    .card-pulse {
+        background-color: #161d28;
+        @apply transition-all duration-300 hover:scale-[1.01] rounded-xl p-6 border border-slate-800/40;
     }
 
-    /* --- Botões e Links --- */
-    .social-icon-btn-sm {
-        @apply p-2.5 rounded-lg bg-neutral-900/40 border border-neutral-800 text-neutral-500 
-               hover:text-white hover:border-orange-500/30 transition-all duration-300 
-               flex items-center justify-center;
-    }
-
+    /* --- LINKS DE NAVEGAÇÃO SUPERIOR --- */
     .nav-link-elite {
-        @apply text-neutral-400 hover:text-white transition-colors flex items-center gap-1;
+        @apply text-slate-300 hover:text-[#2563eb] font-semibold transition-colors flex items-center gap-1 text-sm;
     }
 
-    .animate-cta-orange {
-        @apply hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(249,115,22,0.2)] transition-all;
+    /* --- BOTÃO PRINCIPAL: O Azul Elétrico --- */
+    .animate-cta-blue {
+        background-color: #2563eb;
+        @apply hover:bg-blue-500 text-white font-sans font-bold px-7 py-3 rounded-lg 
+               transition-all text-center block w-full md:inline-block md:w-auto text-sm
+               shadow-[0_0_15px_rgba(37,99,235,0.2)];
     }
 
-    /* --- Feedback Visual e Badges --- */
-    .visitor-badge-elite {
-        @apply h-3 opacity-90;
-        filter: invert(1) brightness(1.5);
+    /* --- BOTÃO SECUNDÁRIO: O Rosa/Roxo Neon --- */
+    .btn-neon-purple {
+        background: linear-gradient(135deg, #a855f7 0%, #db2777 100%);
+        @apply hover:opacity-90 text-white font-sans font-bold px-5 py-2 rounded-full 
+               transition-all text-xs tracking-wide shadow-[0_0_15px_rgba(219,39,119,0.3)];
     }
 
-    .status-ping {
-        @apply relative flex h-2 w-2;
+    /* --- BADGE DESTAQUE: O Vermelho/Coral --- */
+    .badge-lead-red {
+        background-color: #e11d48;
+        @apply text-white font-sans font-bold px-4 py-1.5 rounded-full text-xs tracking-wide;
+    }
+
+    /* --- TEXTO COM GLOW --- */
+    .text-glow-orange { color: #f97316; text-shadow: 0 0 12px rgba(249, 115, 22, 0.4); }
+    .text-glow-blue { color: #3b82f6; text-shadow: 0 0 12px rgba(59, 130, 246, 0.5); }
+    .text-glow-pink { color: #f472b6; text-shadow: 0 0 12px rgba(244, 114, 182, 0.4); }
+
+    /* --- Outros Componentes Utilitários --- */
+    .social-icon-btn-sm {
+        background-color: #161d28;
+        @apply p-2.5 rounded-lg border border-slate-800 text-slate-400 
+               hover:text-[#2563eb] hover:border-slate-700 transition-all duration-300 
+               flex items-center justify-center;
     }
 
     #copy-toast {
         @apply fixed bottom-8 left-1/2 -translate-x-1/2 z-[110]
-               bg-neutral-900 border border-orange-500/30 text-white 
-               px-4 py-2 rounded-full font-mono text-[10px] uppercase tracking-widest
-               pointer-events-none transition-all duration-300 transform translate-y-4;
+               bg-slate-900 text-blue-200 
+               px-5 py-2.5 rounded-full font-mono text-[10px] uppercase tracking-widest
+               pointer-events-none transition-all duration-300 transform translate-y-4 shadow-2xl border border-slate-800;
     }
 
-    /* --- Cards e Animações --- */
-    .card-pulse {
-        @apply transition-all duration-300 hover:scale-[1.02];
-        box-shadow: 0 0 20px rgba(249, 115, 22, 0);
-    }
-    .card-pulse:hover {
-        box-shadow: 0 0 20px rgba(249, 115, 22, 0.1);
-    }
-
-    /* --- Pagefind UI (Grep Style) --- */
-    #search-ui {
-        --pagefind-ui-primary: #f97316;
-        --pagefind-ui-text: #d4d4d4;
-        --pagefind-ui-background: transparent;
-        --pagefind-ui-border: #1a1a1a;
-        --pagefind-ui-tag: #1a1a1a;
+    /* ==========================================================================
+       ESTILIZAÇÃO SEMÂNTICA DO MARKDOWN (Páginas: Privacidade, Termos, Sobre)
+       Criado via @apply para garantir compilação leve no Tailwind
+       ========================================================================== */
+    .markdown-body {
+        @apply font-sans text-slate-400 text-sm leading-relaxed;
     }
 
-    .pagefind-ui__search-input {
-        @apply !bg-black !border-neutral-800 !rounded-lg !font-mono !text-sm !text-white 
-               !p-4 !outline-none focus:!border-orange-500/50 transition-all;
+    .markdown-body h2 {
+        @apply font-mono text-xl font-bold text-cyan-400 uppercase tracking-tight mt-10 mb-4;
     }
 
-    .pagefind-ui__result {
-        @apply !border-b !border-neutral-900 !py-4 last:!border-0;
+    .markdown-body p {
+        @apply mb-5;
     }
 
-    .pagefind-ui__result-link {
-        @apply !text-white hover:!text-orange-500 !font-bold !transition-colors;
+    .markdown-body a {
+        @apply text-cyan-400 no-underline border-b border-cyan-400/30 transition-colors hover:text-cyan-300 hover:border-cyan-300;
     }
 
-    .pagefind-ui__result-excerpt {
-        @apply !text-neutral-500 !text-xs !mt-2 !leading-relaxed;
-        mark { @apply !bg-orange-500/20 !text-orange-500 !bg-transparent !p-0; }
+    .markdown-body ul, .markdown-body ol {
+        @apply mt-2 mb-6 pl-5 space-y-1.5;
     }
 
-    .pagefind-ui__search-label { @apply !hidden; }
-    .pagefind-ui__message { @apply !font-mono !text-[10px] !uppercase !text-neutral-600 !mb-4; }
+    .markdown-body ul { @apply list-disc; }
+    .markdown-body ol { @apply list-decimal; }
+
+    .markdown-body li strong {
+        @apply text-white font-bold;
+    }
+
+    /* Estilo "Hacker" para o Status do Sistema e Comandos Inline */
+    .markdown-body code {
+        @apply font-mono text-cyan-300 bg-[#161d28] px-1.5 py-0.5 rounded border border-slate-800 text-xs font-semibold;
+    }
+
+    /* Bloco de terminal/comando no rodapé dos textos */
+    .markdown-body blockquote {
+        @apply mt-8 bg-[#0c101b] border border-slate-800 rounded-xl p-5 shadow-2xl;
+    }
+
+    .markdown-body blockquote p {
+        @apply m-0 text-cyan-300 font-mono text-xs font-bold tracking-tight;
+    }
 }
 
 /* ==========================================================================
-   LAYER UTILITIES: Utilitários Puros
-   ========================================================================== */
+   LAYER UTILITIES ========================================================== */
 @layer utilities {
-    .no-scrollbar::-webkit-scrollbar {
-        display: none;
-    }
-    .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }

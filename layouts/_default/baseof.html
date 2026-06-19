@@ -1,48 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     {{ partial "head.html" . }}
     
-    {{- /* Bloco para CSS específico ou JSON-LD de Scripts do single.html */ -}}
     {{ block "extra_head" . }}{{ end }}
 </head>
-<body class="bg-[#050505] text-white antialiased">
+<body class="bg-[#0b0f19] text-slate-200 antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
     
     {{ partial "header.html" . }}
     
-    {{- /* REGRAS DE OURO: 
-       1. O <main> fica aqui para manter a semântica em todas as páginas.
-       2. O ID "content" ajuda no scroll-to-top e âncoras.
-    */ -}}
-    <main id="main-content">
-        {{ block "main" . }}{{ end }}
-    </main>
+    <!-- O bloco "main" injeta os layouts específicos (index e single) que já gerenciam suas próprias tags e espaçamentos -->
+    {{ block "main" . }}{{ end }}
 
     {{ partial "footer.html" . }}
-
-    {{- /* Scripts Globais e Otimizações */ -}}
-    <script>
-        // Scroll suave consolidado para Performance (FOSS Style)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
-                if (targetId.startsWith("#")) {
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        e.preventDefault();
-                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        // Atualiza URL sem reload para manter histórico limpo
-                        history.pushState(null, null, targetId);
-                    }
-                }
-            });
-        });
-
-        // Prevenção de CLS para AdSense: Detecta se o script carregou
-        window.addEventListener('load', function() {
-            console.log("⚡ Engenheiro Dev: DOM Pronto | CWV Monitorando...");
-        });
-    </script>
     
     {{ partial "scripts.html" . }}
 </body>

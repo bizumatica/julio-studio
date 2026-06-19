@@ -1,14 +1,23 @@
 baseURL = 'https://juliostudio.dev.br/'
+languageCode = 'pt-BR'
+title = 'Julio-Studio | Design & Performance'
 canonifyURLs = true
 relativeURLs = false
-title = 'Julio-Studio | Design & Performance'
-disableKinds = ["taxonomy", "term"]
+
+# Desabilita taxonomias e desnecessários para um site institucional/landing single puro, eliminando lixo no build
+disableKinds = ["taxonomy", "term", "rss", "sitemap"]
 
 [params]
     description = "Design, Performance Web e Automatização"
     images = ["images/card.jpg"]
-    site_version = "V1.2.3"
+    site_version = "V2.0.0"
     
+    # Links das Redes Sociais e Repositórios
+    whatsapp = "5511964881236"
+    github = "https://github.com/bizumatica"
+    gitlab = "https://gitlab.com/BackInBash"
+    linkedin = "https://www.linkedin.com/in/julio-prata/"
+
     # Exemplos de Landing Pages
     landing_page_examples = [
         { name = "Bizumática", url = "https://bizumatica.com.br/" },
@@ -16,37 +25,28 @@ disableKinds = ["taxonomy", "term"]
         { name = "Lar Espírita Cristão", url = "https://lecitatiba.com.br/" }
     ]
 
-    # Links das Redes Sociais
-    whatsapp = "5511964881236"
-    github = "https://github.com/bizumatica"
-    gitlab = "https://gitlab.com/BackInBash/julio-studio"
-
 [languages]
   [languages.pt-br]
     contentDir = "content"
     languageName = "Português"
     weight = 1
-    locale = "pt-br"
-    
-# Configurações de renderização para KaTeX e Shortcodes
+
+# Configurações de renderização de Markdown e Shortcodes
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
-      unsafe = true  # Permite renderizar o HTML dos nossos Shortcodes (como o bizu)
+      unsafe = true  # Essencial para os shortcodes renderizarem HTML puro
     [markup.goldmark.extensions]
       typographer = true
 
-# Força a remoção de caracteres estranhos e padroniza para minúsculas
+# Ajustado para máxima precisão no GitHub Actions (Remove dependência do histórico profundo do Git)
 [frontmatter]
-  lastmod = [":git", "lastmod", "date", "publishDate"]
+  date = ["date", "publishDate", "lastmod"]
+  lastmod = ["lastmod", "date", "publishDate"]
 
-[slugify]
-  # Garante que espaços e acentos virem hífens limpos
-  removeAccents = true
+[imaging]
+  anchor = 'smart'
 
-[permalinks]
-  blog = "/blog/:slug/"
-
+# Otimizado para CI/CD: Sem rascunhos e permitindo o gerenciamento inteligente de recursos do pipeline
 [build]
-  useResourceCacheWhen = "never"
   renderDrafts = false

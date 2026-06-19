@@ -1,186 +1,192 @@
 {{ define "main" }}
-<style>
-    @keyframes shadow-pulse-orange {
-        0% { box-shadow: 0 0 0 0px rgba(249, 115, 22, 0.4); }
-        70% { box-shadow: 0 0 0 15px rgba(249, 115, 22, 0); }
-        100% { box-shadow: 0 0 0 0px rgba(249, 115, 22, 0); }
-    }
-    .animate-cta-orange {
-        animation: shadow-pulse-orange 2s infinite;
-    }
+<main class="min-h-screen font-mono text-slate-200 bg-[#0b0f19] selection:bg-cyan-500/30 selection:text-cyan-200">
 
-    @keyframes shadow-pulse-purple {
-        0% { box-shadow: 0 0 0 0px rgba(168, 85, 247, 0.4); }
-        70% { box-shadow: 0 0 0 15px rgba(168, 85, 247, 0); }
-        100% { box-shadow: 0 0 0 0px rgba(168, 85, 247, 0); }
-    }
-    .animate-cta-purple {
-        animation: shadow-pulse-purple 2s infinite;
-    }
-
-    /* Ajuste fino para evitar corte no degradê e no cursor '_' */
-    .text-gradient {
-        background: linear-gradient(135deg, #ffffff 30%, #636363 100%);
-        -webkit-background-clip: text;
-        background-clip: text;  
-        -webkit-text-fill-color: transparent;
-        display: inline-block;
-        padding-bottom: 0.05em;
-        padding-right: 0.05em;
-        vertical-align: middle;
-    }
-</style>
-
-<div class="absolute inset-0 z-[-1] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-
-<section class="container mx-auto px-6 py-12 md:py-40 text-center">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-500/20 bg-orange-500/10 text-orange-500 text-[10px] md:text-xs font-medium mb-4 md:mb-8">
-        <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
-        </span>
-        Disponível para novos projetos
-    </div>
-
-    <h2 class="text-[42px] leading-[1.05] md:text-8xl font-extrabold tracking-tighter mb-8 text-white">
-        <span class="text-gradient">Sites que</span> 
-        <span class="text-orange-500">definem_</span> 
-        <br class="hidden md:block" /> 
-        <span id="hero-typing-text" class="text-gradient"></span>
-    </h2>
-
-    <p class="text-base md:text-xl text-neutral-400 max-w-3xl mx-auto mb-12 leading-relaxed px-4">
-        Design minimalista inspirado na <span class="text-white">Geometria</span> com o poder técnico e a alma do <span class="text-white">Linux</span>. 
-    </p>
-
-    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
-        <a href="https://wa.me/{{ .Site.Params.whatsapp }}" target="_blank" class="animate-cta-orange px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-orange-500 hover:text-white transition-all duration-300 w-full sm:w-auto text-center shadow-lg">
-            Iniciar um Projeto
-        </a>
-        <a href="#criacoes" class="animate-cta-purple px-8 py-4 border border-purple-500/50 text-white font-semibold rounded-full hover:bg-purple-600 hover:border-purple-600 transition-all duration-300 w-full sm:w-auto text-center">
-            Explorar Serviços
-        </a>
-    </div>
-</section>
-
-<section id="servicos" class="container mx-auto px-6 py-20">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="group p-8 rounded-2xl border border-neutral-900 bg-neutral-900/30 hover:border-orange-500/50 hover:bg-orange-500/5 hover:scale-[1.02] hover:shadow-[0_0_30px_-15px_rgba(249,115,22,0.3)] transition-all duration-500">
-            <div class="mb-5 inline-block p-3 rounded-lg bg-orange-500/10 text-orange-500 transition-transform group-hover:scale-110">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                </svg>
+    <!-- HERO SECTION: O Terminal de Entrada -->
+    <section class="border-b border-slate-800 py-20 px-4 md:px-8">
+        <div class="max-w-4xl mx-auto">
+            <!-- Badge Superior original da Foto 1 -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 border border-cyan-500/30 bg-cyan-500/10 rounded-full text-xs text-cyan-300 mb-6 font-semibold tracking-wider">
+                <span class="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
+                READY_FOR_NEW_PROJECTS
             </div>
-            <h4 class="text-xl font-bold mb-3 text-white">Core Development</h4>
-            <p class="text-neutral-500 text-sm leading-relaxed">Código limpo e <span class="text-white">estático</span> para velocidade extrema. Otimizado para 100% no <span class="text-white">Lighthouse</span>.</p>
-        </div>
+            
+            <!-- Título original com o destaque correto da Foto 1 -->
+            <h1 class="text-3xl md:text-6xl font-extrabold tracking-tight leading-tight uppercase mb-6 text-white">
+                Desenvolvimento Brutal_ <br>
+                <span class="text-cyan-400">Alta Performance & ROI</span>
+            </h1>
+            
+            <!-- Parágrafo Adequado para Google Ads, Core Web Vitals, Buscas do Público e SEO -->
+            <p class="font-sans text-slate-400 text-lg md:text-xl max-w-2xl mb-8 leading-relaxed">
+                Landing pages e sites com carregamento sub-1s, engenharia limpa inspirada na geometria do Linux e otimizados para tráfego pago de alta escala (Google Ads & AdSense).
+            </p>
 
-        <div class="group p-8 rounded-2xl border border-neutral-900 bg-neutral-900/30 hover:border-orange-500/50 hover:bg-orange-500/5 hover:scale-[1.02] hover:shadow-[0_0_30px_-15px_rgba(249,115,22,0.3)] transition-all duration-500">
-            <div class="mb-5 inline-block p-3 rounded-lg bg-orange-500/10 text-orange-500 transition-transform group-hover:scale-110">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-                </svg>
-            </div>
-            <h4 class="text-xl font-bold mb-3 text-white">UI System</h4>
-            <p class="text-neutral-500 text-sm leading-relaxed">Minimalismo funcional. Interfaces desenvolvidas para parecerem <span class="text-white">ferramentas premium</span>.</p>
-        </div>
-
-        <div class="group p-8 rounded-2xl border border-neutral-900 bg-neutral-900/30 hover:border-orange-500/50 hover:bg-orange-500/5 hover:scale-[1.02] hover:shadow-[0_0_30px_-15px_rgba(249,115,22,0.3)] transition-all duration-500">
-            <div class="mb-5 inline-block p-3 rounded-lg bg-orange-500/10 text-orange-500 transition-transform group-hover:scale-110">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-            </div>
-            <h4 class="text-xl font-bold mb-3 text-white">Search Performance</h4>
-            <p class="text-neutral-500 text-sm leading-relaxed">Arquitetura estática pura que elimina latência. Entrega de conteúdo otimizada para <span class="text-white">SEO</span>.</p>
-        </div>
-
-        <div class="group p-8 rounded-2xl border border-neutral-900 bg-neutral-900/30 hover:border-orange-500/50 hover:bg-orange-500/5 hover:scale-[1.02] hover:shadow-[0_0_30px_-15px_rgba(249,115,22,0.3)] transition-all duration-500">
-            <div class="mb-5 inline-block p-3 rounded-lg bg-orange-500/10 text-orange-500 transition-transform group-hover:scale-110">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                </svg>
-            </div>
-            <h4 class="text-xl font-bold mb-3 text-white">Unix Philosophy</h4>
-            <p class="text-neutral-500 text-sm leading-relaxed">Sistemas guiados pela simplicidade. Pipelines automatizados com a robustez do <span class="text-white">Linux</span>.</p>
-        </div>
-    </div>
-</section>
-
-<section id="criacoes" class="container mx-auto px-6 py-20 border-t border-neutral-900/50">
-    <div class="group inline-block mb-12 p-[1px] rounded-xl bg-purple-500/10 border border-neutral-900 hover:border-purple-500/50 hover:scale-[1.02] hover:shadow-[0_0_30px_-15px_rgba(168,85,247,0.4)] transition-all duration-500 cursor-default">
-        <div class="px-5 py-4 rounded-xl bg-neutral-950/50 backdrop-blur-sm">
-            <div class="flex items-center gap-3">
-                <div class="h-2 w-2 rounded-full bg-purple-500 animate-pulse"></div>
-                <span class="text-[10px] font-mono text-purple-400 uppercase tracking-widest">Experimental_Area</span>
-            </div>
-            <h3 class="text-2xl font-bold tracking-tighter text-white mt-1">Criações_Lab</h3>
-            <p class="text-neutral-500 text-xs mt-1 max-w-xs leading-relaxed">Projetos técnicos e soluções em <span class="text-white font-medium">Bash</span> e <span class="text-white font-medium">Docker</span>.</p>
-        </div>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div id="landing-pages" class="group relative p-1 rounded-2xl bg-neutral-900/50 border border-neutral-900 hover:border-orange-500/30 transition-all duration-500">
-            <div class="p-6">
-                <span class="text-[10px] font-mono text-orange-500/70 uppercase tracking-widest">Static_Web</span>
-                <h4 class="text-xl font-bold mt-2 mb-3 text-white">Landing Pages Velozes</h4>
-                <p class="text-neutral-500 text-sm mb-6">Páginas estáticas focadas em 100% de <span class="text-white font-medium">performance</span> no Lighthouse.</p>
-                <div class="flex flex-wrap gap-x-4 gap-y-2 mb-6">
-                    {{ range .Site.Params.landing_page_examples }}
-                    <a href="{{ .url }}" target="_blank" class="inline-flex items-center text-[10px] font-bold text-white group-hover:text-orange-500 transition-colors uppercase">
-                        {{ .name }} 
-                        <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+            <!-- CTA via comando Terminal original (Visual LinuxToys escuro idêntico à Foto 1) -->
+            <div class="bg-[#0f1422] border border-slate-800 rounded-xl p-4 md:p-6 max-w-xl font-mono shadow-2xl">
+                <div class="flex items-center justify-between mb-3 text-xs text-slate-600 border-b border-slate-800 pb-2">
+                    <span>bash_init.sh</span>
+                    <span>v{{ $.Site.Params.site_version }}</span>
+                </div>
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div class="flex items-center gap-2 text-sm text-cyan-300 font-bold">
+                        <span class="text-slate-700">$</span> curl -sL julio.studio/contratar | bash
+                    </div>
+                    <a href="https://wa.me/{{ $.Site.Params.whatsapp }}" target="_blank" rel="noopener"
+                       class="text-center px-5 py-2 bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs rounded transition-all shadow-md shadow-cyan-600/30 uppercase tracking-wider">
+                        Iniciar Projeto
                     </a>
-                    {{ end }}
-                </div>
-                <div class="flex gap-2">
-                    <span class="text-[9px] border border-neutral-800 px-2 py-1 rounded text-neutral-400">Hugo</span>
-                    <span class="text-[9px] border border-neutral-800 px-2 py-1 rounded text-neutral-400">Tailwind</span>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div id="backinbash_tools" class="group relative p-1 rounded-2xl bg-neutral-900/50 border border-neutral-900 hover:border-green-500/30 transition-all duration-500">
-            <div class="p-6">
-                <span class="text-[10px] font-mono text-green-500/70 uppercase tracking-widest">Unix_Philosophy</span>
-                <h4 class="text-xl font-bold mt-2 mb-3 text-white">BackInBash_Tools</h4>
-                <p class="text-neutral-500 text-sm mb-6">Scripts FOSS para <span class="text-white font-medium">otimização</span> de processos via automação.</p>
-                <a href="https://github.com/bizumatica/backinbash-tools" target="_blank" class="inline-flex items-center text-xs font-bold text-white group-hover:text-green-500 transition-colors mb-6">
-                    GIT_REPOSITORY <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
-                </a>
-                <div class="flex gap-2">
-                    <span class="text-[9px] border border-neutral-800 px-2 py-1 rounded text-neutral-400">Bash</span>
-                    <span class="text-[9px] border border-neutral-800 px-2 py-1 rounded text-neutral-400">Docker</span>
-                </div>
-            </div>
+    <!-- THE GRID: Seções Estilo Utilitários (Garantindo o fundo #0f1422 em vez de quebrar) -->
+    <section class="max-w-6xl mx-auto px-4 md:px-8 py-20">
+        
+        <div class="text-center md:text-left mb-12">
+            <h2 class="text-xs uppercase tracking-[0.3em] text-slate-500 font-bold mb-2">// CORE_UTILITIES</h2>
+            <p class="text-xl font-black text-white uppercase font-mono">O que eu coloco de pé no seu ecossistema</p>
         </div>
 
-        <div id="bizumatica_archive" class="group relative p-1 rounded-2xl bg-neutral-900/50 border border-neutral-900 hover:border-blue-500/30 transition-all duration-500">
-            <div class="p-6">
-                <span class="text-[10px] font-mono text-blue-500/70 uppercase tracking-widest">Knowledge_Base</span>
-                <h4 class="text-xl font-bold mt-2 mb-3 text-white">Bizumática_Archive</h4>
-                <div class="mb-6 space-y-2">
-                    {{ range (where .Site.RegularPages "Section" "blog") | first 6 }}
-                    <a href="{{ .Permalink }}" class="block group/link">
-                        <p class="text-[11px] font-mono text-neutral-500 group-hover/link:text-blue-400 transition-colors">
-                            <span class="text-blue-900 font-bold">fetch</span> {{ .Title | truncate 30 }}
-                        </p>
-                    </a>
-                    {{ else }}
-                    <p class="text-neutral-500 text-[11px] italic font-mono">ls: archive_empty</p>
-                    {{ end }}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- CARD 1: Sites e Landing Pages -->
+            <div class="bg-[#0f1422] border border-slate-800 rounded-xl p-6 group flex flex-col justify-between transition-all duration-300 hover:border-slate-700">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold text-cyan-400 font-mono">[01_WEB_DEV]</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-700 group-hover:text-cyan-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 uppercase">Sites & Landing Pages</h3>
+                    <p class="font-sans text-slate-400 text-sm leading-relaxed mb-6">
+                        Páginas estáticas ultra-otimizadas com Hugo ou puro HTML/Tailwind. Carregamento abaixo de 1s para garantir pontuação máxima no Core Web Vitals e reduzir o custo por clique (CPC).
+                    </p>
                 </div>
-                <a href="/blog" class="inline-flex items-center text-xs font-bold text-white group-hover:text-blue-500 transition-colors mb-6">
-                    READ_ALL_DOCS <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
-                </a>
-                <div class="flex gap-2">
-                    <span class="text-[9px] border border-neutral-800 px-2 py-1 rounded text-neutral-400">Linux</span>
-                    <span class="text-[9px] border border-neutral-800 px-2 py-1 rounded text-neutral-400">Docs</span>
+                <div class="flex flex-wrap gap-2 text-[10px] font-mono text-slate-500 uppercase">
+                    <span class="px-2 py-0.5 bg-slate-900 border border-slate-800 rounded">Static_Build</span>
+                    <span class="px-2 py-0.5 bg-slate-900 border border-slate-800 rounded">SEO_Perfect</span>
                 </div>
             </div>
+
+            <!-- CARD 2: Infra & Bash Scripting -->
+            <div class="bg-[#0f1422] border border-slate-800 rounded-xl p-6 group flex flex-col justify-between transition-all duration-300 hover:border-slate-700">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold text-cyan-400 font-mono">[02_AUTOMATION]</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-700 group-hover:text-cyan-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 uppercase">Bash Scripts & Automação</h3>
+                    <p class="font-sans text-slate-400 text-sm leading-relaxed mb-6">
+                        Scripts customizados para deploy automatizado, backups em servidores Linux, raspagem de dados ou sincronização com APIs. A inteligência do terminal a serviço do seu negócio.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 text-[10px] font-mono text-slate-500 uppercase">
+                    <span class="px-2 py-0.5 bg-slate-900 border border-slate-800 rounded">Bash</span>
+                    <span class="px-2 py-0.5 bg-slate-900 border border-slate-800 rounded">Cron_Jobs</span>
+                </div>
+            </div>
+
+            <!-- CARD 3: Google Ads Optimization -->
+            <div class="bg-[#0f1422] border border-slate-800 rounded-xl p-6 group flex flex-col justify-between transition-all duration-300 hover:border-slate-700">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold text-cyan-400 font-mono">[03_TRAFFIC_ADS]</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-700 group-hover:text-cyan-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 uppercase">Google Ads Adequação</h3>
+                    <p class="font-sans text-slate-400 text-sm leading-relaxed mb-6">
+                        Páginas estruturadas sob os critérios rígidos do Google Ads. Tags de conversão globais, estrutura limpa para o robô de aprovação e design focado inteiramente na taxa de conversão (CRO).
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 text-[10px] font-mono text-slate-500 uppercase">
+                    <span class="px-2 py-0.5 bg-slate-900 border border-slate-800 rounded">GTM_Setup</span>
+                    <span class="px-2 py-0.5 bg-slate-900 border border-slate-800 rounded">Conversion_Max</span>
+                </div>
+            </div>
+
+            <!-- CARD 4: Monetização AdSense -->
+            <div class="bg-[#0f1422] border border-slate-800 rounded-xl p-6 group flex flex-col justify-between transition-all duration-300 hover:border-slate-700">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold text-cyan-400 font-mono">[04_MONETIZATION]</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-700 group-hover:text-cyan-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 uppercase">Aprovação no AdSense</h3>
+                    <p class="font-sans text-slate-400 text-sm leading-relaxed mb-6">
+                        Adequação de portais e blogs estáticos para os termos de consentimento e políticas do Google AdSense. Inclusão cirúrgica de blocos de anúncios sem quebrar seu layout ou destruir sua velocidade de página.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 text-[10px] font-mono text-slate-500 uppercase">
+                    <span class="px-2 py-0.5 bg-slate-900 border border-slate-800 rounded">ads.txt_Ready</span>
+                    <span class="px-2 py-0.5 bg-slate-900 border border-slate-800 rounded">Privacy_Policy</span>
+                </div>
+            </div>
+
+            <!-- CARD 5: Casos de Sucesso -->
+<div class="bg-[#0f1422] border border-slate-800 rounded-xl p-6 group flex flex-col justify-between transition-all duration-300 hover:border-slate-700">
+    <div>
+        <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-bold text-cyan-400 font-mono">[05_PORTFOLIO]</span>
+            <!-- Ícone de link externo coerente com portfólio -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-700 group-hover:text-cyan-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2 uppercase">Casos de Sucesso</h3>
+        <p class="font-sans text-slate-400 text-sm leading-relaxed mb-6">
+            Aplicações em produção desenhadas sob medida para máxima velocidade, conversão e conformidade técnica. Conheça alguns ecossistemas ativos:
+        </p>
+        
+        <!-- Lista de Links Práticos dos Projetos -->
+        <div class="flex flex-col gap-2.5 font-mono text-xs mb-6">
+            <a href="https://scal4r.com/" target="_blank" rel="noopener" class="flex items-center gap-1.5 text-slate-300 hover:text-cyan-400 transition-colors">
+                <span class="text-slate-600">&gt;</span> scal4r.com
+            </a>
+            <a href="https://bizumatica.com.br/" target="_blank" rel="noopener" class="flex items-center gap-1.5 text-slate-300 hover:text-cyan-400 transition-colors">
+                <span class="text-slate-600">&gt;</span> bizumatica.com.br
+            </a>
+            <a href="https://lecitatiba.com.br/" target="_blank" rel="noopener" class="flex items-center gap-1.5 text-slate-300 hover:text-cyan-400 transition-colors">
+                <span class="text-slate-600">&gt;</span> lecitatiba.com.br
+            </a>
         </div>
     </div>
-</section>
+    
+    <!-- Badges técnicas do rodapé do card -->
+    <div class="flex flex-wrap gap-2 text-[10px] font-mono text-slate-500 uppercase">
+        <span class="px-2 py-0.5 bg-slate-900 border border-slate-800 rounded">Live_Projects</span>
+        <span class="px-2 py-0.5 bg-slate-900 border border-slate-800 rounded">Production_Ready</span>
+    </div>
+</div>
 
-{{ partial "cta_hub.html" . }}
+        </div>
+    </section>
+
+    <!-- SEÇÃO FINAL: O Rodapé de Conexão -->
+    <section class="border-t border-slate-800 bg-[#070b12] py-16 px-4 md:px-8">
+        <div class="max-w-4xl mx-auto text-center font-mono">
+            <h3 class="text-xl font-extrabold text-white uppercase mb-4 tracking-tight">
+                Pronto para sair do <span class="text-cyan-400">localhost?</span>
+            </h3>
+            <p class="font-sans text-slate-500 text-sm mb-8 max-w-sm mx-auto">
+                Código limpo, arquitetura Linux-inspired e focado em resultados reais de tráfego.
+            </p>
+            <div class="inline-flex flex-wrap justify-center items-center gap-4">
+                <a href="https://wa.me/{{ $.Site.Params.whatsapp }}" target="_blank" rel="noopener"
+                   class="text-center px-5 py-2 bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs rounded transition-all shadow-md shadow-cyan-600/30 uppercase tracking-wider">
+                    Chamar no WhatsApp_
+                </a>
+            </div>
+            
+        </div>
+    </section>
+
+</main>
 {{ end }}

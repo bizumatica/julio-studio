@@ -1,45 +1,100 @@
-<footer class="container mx-auto px-6 py-12 border-t border-neutral-900">
-    <div class="flex flex-col items-center justify-center gap-8 text-center">
+<footer class="w-full px-6 py-12 border-t border-slate-800/60 bg-[#070b12] font-mono">
+    <div class="max-w-4xl mx-auto flex flex-col items-center justify-center gap-8 text-center">
         
+        <!-- Branding & Assinatura Técnica (Reorganizado com foco no espaçamento) -->
         <div class="flex flex-col items-center gap-2">
+            
+            <!-- Título Principal do Estúdio e Versão -->
             <div class="flex items-center gap-3">
-                <span class="text-white font-bold tracking-tighter">JULIO_STUDIO</span>
-                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-neutral-900 text-orange-500 border border-orange-500/20">
+                <span class="text-white font-bold tracking-tight uppercase">JULIO_STUDIO</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#161d28] text-blue-400 border border-slate-800 shadow-2xs">
                     {{ $.Site.Params.site_version }}
                 </span>
             </div>
-            <p class="text-[10px] font-mono text-neutral-600 uppercase tracking-widest">
-                &copy; {{ now.Format "2006" }} <span class="text-neutral-400">Stable_Build</span>. Compiled_with_Hugo
+
+            <!-- Redes Sociais, Repositórios & Contato E-mail -->
+            <div class="flex items-center justify-center gap-3 mt-2 mb-6">
+                <!-- GitHub -->
+                <a href="https://github.com/bizumatica" target="_blank" rel="noopener" aria-label="GitHub"
+                   class="w-9 h-9 rounded-lg bg-[#161d28] border border-slate-800 text-slate-400 hover:text-cyan-400 hover:border-slate-700 transition-all duration-300 flex items-center justify-center">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                </a>
+
+                <!-- GitLab -->
+                <a href="https://gitlab.com/BackInBash" target="_blank" rel="noopener" aria-label="GitLab"
+                   class="w-9 h-9 rounded-lg bg-[#161d28] border border-slate-800 text-slate-400 hover:text-cyan-400 hover:border-slate-700 transition-all duration-300 flex items-center justify-center">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l2.39-7.38a.86.86 0 0 1 .81-.59h15.5a.86 1 0 0 1 .81.59l2.39 7.38a.84.84 0 0 1-.3.94z"></path>
+                    </svg>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/julio-prata/" target="_blank" rel="noopener" aria-label="LinkedIn"
+                   class="w-9 h-9 rounded-lg bg-[#161d28] border border-slate-800 text-slate-400 hover:text-cyan-400 hover:border-slate-700 transition-all duration-300 flex items-center justify-center">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                </a>
+
+                <!-- Email Contato (ProtonMail) -->
+                <a href="mailto:julio.prata@proton.me" aria-label="E-mail de Contato"
+                   class="w-9 h-9 rounded-lg bg-[#161d28] border border-slate-800 text-slate-400 hover:text-cyan-400 hover:border-slate-700 transition-all duration-300 flex items-center justify-center">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Assinatura do Build Técnico -->
+            <p class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">
+                &copy; {{ now.Format "2006" }} <span class="text-slate-400 font-semibold">Stable_Build</span>. Compilado_com_Hugo
             </p>
         </div>
 
-        <div class="flex flex-col items-center gap-2">
+        <!-- Links de Conformidade Exigidos pelo Google Ads -->
+        <div class="flex items-center gap-4 text-[11px] font-mono tracking-tight text-slate-400">
+            <a href="/privacidade/" class="hover:text-blue-400 transition-colors">POLÍTICA DE PRIVACIDADE</a>
+            <span class="text-slate-800">|</span>
+            <a href="/termos/" class="hover:text-blue-400 transition-colors">TERMOS DE USO</a>
+            <span class="text-slate-800">|</span>
+            <a href="/sobre/" class="hover:text-blue-400 transition-colors">SOBRE NÓS</a>
+        </div>
+
+        <!-- Telemetria do Sistema (Uptime) - Mantendo a alma Linux -->
+        <div class="flex flex-col items-center gap-1.5">
             <div class="flex items-center gap-2">
                 <div class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </div>
                 <span class="text-[10px] font-mono text-emerald-400 font-bold uppercase tracking-[0.2em]">System_Operational</span>
             </div>
-            <span class="text-[9px] font-mono text-neutral-700">$ uptime: up_since_2026</span>
+            <span class="text-[9px] font-mono text-slate-600">$ uptime: up_since_2026</span>
         </div>
 
+        <!-- Contador de Tráfego Escurecido -->
         <div class="flex flex-col items-center gap-1">
-            <span class="text-[9px] font-mono text-neutral-600 uppercase tracking-widest">Traffic_Analysis</span>
-            <div class="flex items-center gap-2 px-3 py-1 rounded-lg bg-neutral-900/50 border border-neutral-800 hover:border-neutral-700 transition-colors">
-                <svg class="w-3 h-3 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span class="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Traffic_Analysis</span>
+            <div class="flex items-center gap-2 px-3 py-1 rounded-lg bg-[#161d28] border border-slate-800 transition-colors hover:border-blue-500/40">
+                <svg class="w-3 h-3 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
                 </svg>
                 
-                <img src="https://visitor-badge.laobi.icu/badge?page_id=juliostudio.dev.br&left_text=VISITS&left_color=171717&right_color=171717" 
+                <img src="https://visitor-badge.laobi.icu/badge?page_id=juliostudio.dev.br&left_text=VISITS&left_color=11151c&right_color=2563eb" 
                      alt="Visitas" 
-                     class="visitor-badge-elite">
+                     class="visitor-badge-elite opacity-90 invert-0">
             </div>
         </div>
 
     </div>
 
+    <!-- Divisória sutil de encerramento escura -->
     <div class="mt-12 flex justify-center">
-        <div class="h-px w-24 bg-gradient-to-r from-transparent via-neutral-800 to-transparent"></div>
+        <div class="h-px w-24 bg-gradient-to-r from-transparent via-slate-800 to-transparent"></div>
     </div>
 </footer>
