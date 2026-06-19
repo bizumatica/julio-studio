@@ -1,5 +1,5 @@
 baseURL = 'https://juliostudio.dev.br/'
-languageCode = 'pt-BR'
+locale = 'pt-BR'  # Corrigido para o padrão Hugo v0.158+
 title = 'Julio-Studio | Design & Performance'
 canonifyURLs = true
 relativeURLs = false
@@ -10,7 +10,7 @@ disableKinds = ["taxonomy", "term", "rss", "sitemap"]
 [params]
     description = "Design, Performance Web e Automatização"
     images = ["images/card.jpg"]
-    site_version = "V2.0.0"
+    site_version = "V1.2.3"
     
     # Links das Redes Sociais e Repositórios
     whatsapp = "5511964881236"
@@ -28,7 +28,7 @@ disableKinds = ["taxonomy", "term", "rss", "sitemap"]
 [languages]
   [languages.pt-br]
     contentDir = "content"
-    languageName = "Português"
+    label = "Português"  # Corrigido para o padrão Hugo v0.158+
     weight = 1
 
 # Configurações de renderização de Markdown e Shortcodes
@@ -39,7 +39,6 @@ disableKinds = ["taxonomy", "term", "rss", "sitemap"]
     [markup.goldmark.extensions]
       typographer = true
 
-# Ajustado para máxima precisão no GitHub Actions (Remove dependência do histórico profundo do Git)
 [frontmatter]
   date = ["date", "publishDate", "lastmod"]
   lastmod = ["lastmod", "date", "publishDate"]
@@ -47,6 +46,5 @@ disableKinds = ["taxonomy", "term", "rss", "sitemap"]
 [imaging]
   anchor = 'smart'
 
-# Otimizado para CI/CD: Sem rascunhos e permitindo o gerenciamento inteligente de recursos do pipeline
 [build]
   renderDrafts = false

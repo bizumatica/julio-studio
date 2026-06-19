@@ -30,24 +30,25 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
-          fetch-depth: 1 # Máxima velocidade: clone raso (sem histórico pesado)
+          fetch-depth: 1 # Clone raso para velocidade máxima
 
       - name: 🛠️ Configurar Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'latest' # Puxa sempre o core atualizado e estável
+          hugo-version: 'latest'
           extended: true
+
+      - name: 🟢 Configurar Node.js (Runtime Técnico do CSS)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: 🎨 Instalar Compilador de CSS (PostCSS)
+        run: npm install -g postcss postcss-cli autoprefixer
 
       - name: 🏗️ Compilar Site Estático
         run: hugo --gc --minify --cleanDestinationDir --baseURL "https://juliostudio.dev.br/"
 
-      - name: ⚙️ Compliance Check Ads & SEO
-        run: |
-          if [ ! -f "public/ads.txt" ]; then 
-            echo "::warning::Aviso: ads.txt não detectado. Ignore se ainda não configurou o AdSense."
-          fi
-
-      # Deploy nativo moderno através de APIs oficiais do GitHub (Zero lixo no repositório)
       - name: 📦 Upload do Artefato (GitHub Pages Nativo)
         uses: actions/upload-pages-artifact@v3
         with:
