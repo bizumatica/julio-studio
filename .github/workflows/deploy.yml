@@ -43,8 +43,9 @@ jobs:
         with:
           node-version: '22'
 
-      - name: 🎨 Instalar Compilador de CSS (PostCSS)
-        run: npm install -g postcss postcss-cli autoprefixer
+      - name: 🎨 Instalar Compilador de CSS e Módulos do Tailwind
+        # Injetado o tailwindcss globalmente para o postcss.config.js conseguir importá-lo
+        run: npm install -g postcss postcss-cli autoprefixer tailwindcss
 
       - name: 🏗️ Compilar Site Estático
         run: hugo --gc --minify --cleanDestinationDir --baseURL "https://juliostudio.dev.br/"
