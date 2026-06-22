@@ -1,38 +1,36 @@
-<header class="glass sticky top-0 z-50 w-full border-b border-slate-200/40">
+<header class="glass sticky top-0 z-50 w-full border-b border-slate-800">
     <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <!-- Logo e Branding Solar / Premium Dev -->
-        <a href="/" class="flex items-center gap-1.5 md:gap-2 hover:opacity-90 transition shrink-0">
-            <!-- Caixa escura profunda contrastando com o fundo pastel -->
-            <div class="h-7 w-7 bg-solar-text rounded-lg flex items-center justify-center font-mono font-bold text-solar-bg text-[10px] shrink-0 shadow-sm">
+        <!-- Logo e Branding Minimalista / Estilo Hacker -->
+        <a href="/" class="flex items-center gap-2 hover:opacity-90 transition shrink-0">
+            
+            <!-- LOGO JS CORRIGIDO (Idêntico à image_9d2c27.png: sem caixa, apenas texto limpo e discreto) -->
+            <div class="font-mono font-black text-slate-700 text-xs tracking-tighter shrink-0 select-none">
                 JS
             </div>
-            <!-- Título em tom escuro profundo com o acento solar -->
-            <h1 class="text-[12px] md:text-xl font-black tracking-tighter uppercase whitespace-nowrap text-solar-text">
-                JULIO<span class="text-solar-brand">_STUDIO</span>
+            
+            <!-- BRANDING: "JULIO" em Branco Puro e "_STUDIO" em Ciano Elétrico -->
+            <h1 class="text-sm md:text-xl font-mono font-black tracking-tighter uppercase whitespace-nowrap text-white">
+            JULIO<span class="text-cyan-400">_STUDIO</span>
             </h1>
         </a>
         
-        <!-- Links de Navegação (Sem Blog / Sem Busca / Contraste Corrigido) -->
+        <!-- Links de Navegação (Contraste Limpo com text-slate-300) -->
         <div class="flex items-center gap-5 md:gap-6 ml-auto">
-            
-            <!-- Serviços: texto alterado para text-solar-text para maior peso visual e legibilidade -->
-            <a href="#landing-pages" class="group flex items-center gap-1 text-solar-text hover:text-solar-brand font-semibold transition-colors tracking-tight" title="Serviços">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:hidden text-solar-muted group-hover:text-solar-brand transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <a href="#landing-pages" class="group flex items-center gap-1 text-slate-300 hover:text-[#22D3EE] font-semibold transition-colors tracking-tight" title="Serviços">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:hidden text-slate-500 group-hover:text-[#22D3EE] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 <span class="hidden md:inline text-sm">Serviços</span>
             </a>
 
-            <!-- Ferramentas: texto alterado para text-solar-text para consistência -->
-            <a href="#backinbash_tools" class="group flex items-center gap-1 text-solar-text hover:text-solar-brand font-semibold transition-colors tracking-tight" title="Ferramentas">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:hidden text-solar-muted group-hover:text-solar-brand transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <a href="#backinbash_tools" class="group flex items-center gap-1 text-slate-300 hover:text-[#22D3EE] font-semibold transition-colors tracking-tight" title="Ferramentas">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:hidden text-slate-500 group-hover:text-[#22D3EE] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 00-1 1v1a2 2 0 11-4 0v-1a1 1 0 00-1-1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
                 </svg>
                 <span class="hidden md:inline text-sm">Ferramentas</span>
             </a>
 
-            <!-- Badge de versão do site com borda sutil e fundo opaco claro -->
-            <span class="hidden sm:inline px-3 py-1 rounded-full border border-slate-200 text-[10px] font-mono text-solar-muted uppercase tracking-widest bg-white/80 shadow-2xs">
+            <span class="hidden sm:inline px-3 py-1 rounded-full border border-slate-800 text-[10px] font-mono text-slate-400 uppercase tracking-widest bg-slate-900/80">
                 {{ $.Site.Params.site_version }}
             </span>
         </div>

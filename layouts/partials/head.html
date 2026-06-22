@@ -7,13 +7,27 @@
     <meta name="author" content="Julio-Studio" />
     <link rel="canonical" href="{{ .Permalink }}">
 
+    <!-- Open Graph / Meta Tags de Compartilhamento -->
     <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
     <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}" />
     <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
-    <meta property="og:image" content="{{ "images/card.jpg" | absURL }}" />
     <meta property="og:url" content="{{ .Permalink }}" />
+    
+    <!-- FIX DO WHATSAPP: Força o link a renderizar como miniatura discreta em vez de card gigante -->
+    <meta property="og:image" content="{{ "images/card-mini.jpg" | absURL }}" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta name="twitter:card" content="summary" /> <!-- Mantém o comportamento de miniatura pequena no X/Twitter -->
 
-    <link rel="icon" href="/favicon.ico">
+    <!-- SUITE DE FAVICONS PREMIUM (Bordas limpas, sem cache e multi-dispositivo) -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png?v=2">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png?v=2">
+    <link rel="manifest" href="/site.webmanifest">
 
     <!-- Conexão de Fontes Otimizada - Toque Editorial Premium com Carregamento Rápido -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
