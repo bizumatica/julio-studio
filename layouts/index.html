@@ -1,27 +1,22 @@
 {{ define "main" }}
 <main class="min-h-screen font-mono text-slate-200 bg-[#0b0f19] selection:bg-cyan-500/30 selection:text-cyan-200">
 
-    <!-- HERO SECTION: O Terminal de Entrada -->
     <section class="border-b border-slate-800 py-20 px-4 md:px-8">
         <div class="max-w-4xl mx-auto">
-            <!-- Badge Superior original da Foto 1 -->
             <div class="inline-flex items-center gap-2 px-3 py-1 border border-cyan-500/30 bg-cyan-500/10 rounded-full text-xs text-cyan-300 mb-6 font-semibold tracking-wider">
                 <span class="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
                 READY_FOR_NEW_PROJECTS
             </div>
             
-            <!-- Título original com o destaque correto da Foto 1 -->
             <h1 class="text-3xl md:text-6xl font-extrabold tracking-tight leading-tight uppercase mb-6 text-white">
                 Desenvolvimento Brutal_ <br>
                 <span class="text-cyan-400">Alta Performance & ROI</span>
             </h1>
             
-            <!-- Parágrafo Adequado para Google Ads, Core Web Vitals, Buscas do Público e SEO -->
             <p class="font-sans text-slate-400 text-lg md:text-xl max-w-2xl mb-8 leading-relaxed">
                 Landing pages e sites com carregamento sub-1s, engenharia limpa inspirada na geometria do Linux e otimizados para tráfego pago de alta escala (Google Ads & AdSense).
             </p>
 
-            <!-- CTA via comando Terminal original (Visual Toys escuro idêntico) -->
             <div class="bg-[#0f1422] border border-slate-800 rounded-xl p-4 md:p-6 max-w-xl font-mono shadow-2xl">
                 <div class="flex items-center justify-between mb-3 text-xs text-slate-600 border-b border-slate-800 pb-2">
                     <span>bash_init.sh</span>
@@ -40,8 +35,7 @@
         </div>
     </section>
 
-    <!-- THE GRID: Seções Estilo Utilitários (Garantindo o fundo #0f1422 em vez de quebrar) -->
-    <section class="max-w-6xl mx-auto px-4 md:px-8 py-20">
+    <section id="services-section" class="max-w-6xl mx-auto px-4 md:px-8 py-20 scroll-mt-24">
         
         <div class="text-center md:text-left mb-12">
             <h2 class="text-xs uppercase tracking-[0.3em] text-slate-500 font-bold mb-2">// CORE_UTILITIES</h2>
@@ -50,13 +44,12 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             
-            <!-- CARD 1: Sites e Landing Pages -->
-            <div class="bg-[#0f1422] border border-slate-800 rounded-xl p-6 group flex flex-col justify-between transition-all duration-300 hover:border-slate-700">
+            <div id="card-webdev" class="bg-[#0f1422] border border-slate-800 rounded-xl p-6 group flex flex-col justify-between transition-all duration-300 hover:border-slate-700 scroll-mt-28">
                 <div>
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-xs font-bold text-cyan-400 font-mono">[01_WEB_DEV]</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-700 group-hover:text-cyan-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM4 10h16M7 8h.01M10 8h.01M13 8h.01" />
                         </svg>
                     </div>
                     <h3 class="text-lg font-bold text-white mb-2 uppercase">Sites & Landing Pages</h3>
@@ -70,8 +63,7 @@
                 </div>
             </div>
 
-            <!-- CARD 2: Infra & Bash Scripting -->
-            <div class="bg-[#0f1422] border border-slate-800 rounded-xl p-6 group flex flex-col justify-between transition-all duration-300 hover:border-slate-700">
+            <div id="card-automation" class="bg-[#0f1422] border border-slate-800 rounded-xl p-6 group flex flex-col justify-between transition-all duration-300 hover:border-slate-700 scroll-mt-28">
                 <div>
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-xs font-bold text-cyan-400 font-mono">[02_AUTOMATION]</span>
@@ -90,8 +82,7 @@
                 </div>
             </div>
 
-            <!-- CARD 3: Google Ads Optimization -->
-            <div class="bg-[#0f1422] border border-slate-800 rounded-xl p-6 group flex flex-col justify-between transition-all duration-300 hover:border-slate-700">
+            <div id="card-traffic" class="bg-[#0f1422] border border-slate-800 rounded-xl p-6 group flex flex-col justify-between transition-all duration-300 hover:border-slate-700 scroll-mt-28">
                 <div>
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-xs font-bold text-cyan-400 font-mono">[03_TRAFFIC_ADS]</span>
@@ -110,8 +101,7 @@
                 </div>
             </div>
 
-            <!-- CARD 4: Monetização AdSense -->
-            <div class="bg-[#0f1422] border border-slate-800 rounded-xl p-6 group flex flex-col justify-between transition-all duration-300 hover:border-slate-700">
+            <div id="card-monetization" class="bg-[#0f1422] border border-slate-800 rounded-xl p-6 group flex flex-col justify-between transition-all duration-300 hover:border-slate-700 scroll-mt-28">
                 <div>
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-xs font-bold text-cyan-400 font-mono">[04_MONETIZATION]</span>
@@ -121,7 +111,7 @@
                     </div>
                     <h3 class="text-lg font-bold text-white mb-2 uppercase">Aprovação no AdSense</h3>
                     <p class="font-sans text-slate-400 text-sm leading-relaxed mb-6">
-                        Adequação de portais e blogs estáticos para os termos de consentimento e políticas do Google AdSense. Inclusão cirúrgica de blocos de anúncios sem quebrar seu layout ou destruir sua velocidade de página.
+                        Adequação de portais e blogs estáticos para os termos de consentimento e políticas do Google AdSense. Inclusão cirúrgica de blocks de anúncios sem quebrar seu layout ou destruir sua velocidade de página.
                     </p>
                 </div>
                 <div class="flex flex-wrap gap-2 text-[10px] font-mono text-slate-500 uppercase">
@@ -130,46 +120,59 @@
                 </div>
             </div>
 
-            <!-- CARD 5: Casos de Sucesso -->
-<div class="bg-[#0f1422] border border-slate-800 rounded-xl p-6 group flex flex-col justify-between transition-all duration-300 hover:border-slate-700">
-    <div>
-        <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-bold text-cyan-400 font-mono">[05_PORTFOLIO]</span>
-            <!-- Ícone de link externo coerente com portfólio -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-700 group-hover:text-cyan-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-        </div>
-        <h3 class="text-lg font-bold text-white mb-2 uppercase">Casos de Sucesso</h3>
-        <p class="font-sans text-slate-400 text-sm leading-relaxed mb-6">
-            Aplicações em produção desenhadas sob medida para máxima velocidade, conversão e conformidade técnica. Conheça alguns ecossistemas ativos:
-        </p>
-        
-        <!-- Lista de Links Práticos dos Projetos -->
-        <div class="flex flex-col gap-2.5 font-mono text-xs mb-6">
-            <a href="https://scal4r.com/" target="_blank" rel="noopener" class="flex items-center gap-1.5 text-slate-300 hover:text-cyan-400 transition-colors">
-                <span class="text-slate-600">&gt;</span> scal4r.com
-            </a>
-            <a href="https://bizumatica.com.br/" target="_blank" rel="noopener" class="flex items-center gap-1.5 text-slate-300 hover:text-cyan-400 transition-colors">
-                <span class="text-slate-600">&gt;</span> bizumatica.com.br
-            </a>
-            <a href="https://lecitatiba.com.br/" target="_blank" rel="noopener" class="flex items-center gap-1.5 text-slate-300 hover:text-cyan-400 transition-colors">
-                <span class="text-slate-600">&gt;</span> lecitatiba.com.br
-            </a>
-        </div>
-    </div>
-    
-    <!-- Badges técnicas do rodapé do card -->
-    <div class="flex flex-wrap gap-2 text-[10px] font-mono text-slate-500 uppercase">
-        <span class="px-2 py-0.5 bg-slate-900 border border-slate-800 rounded">Live_Projects</span>
-        <span class="px-2 py-0.5 bg-slate-900 border border-slate-800 rounded">Production_Ready</span>
-    </div>
-</div>
+            <div id="tools-section" class="bg-[#0f1422] border border-slate-800 rounded-xl p-6 group flex flex-col justify-between transition-all duration-300 hover:border-slate-700 scroll-mt-28">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold text-cyan-400 font-mono">[05_PUBLIC_REPO]</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-700 group-hover:text-cyan-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 uppercase">repositório público</h3>
+                    <p class="font-sans text-slate-400 text-sm leading-relaxed mb-6">Repositório Público & FOSS. Otimização de processos com transparência total. Código aberto e livre para auditagem, integrado a um pipeline de automação em nuvem que garante máxima eficiência, segurança e deploy contínuo.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 text-[10px] font-mono text-slate-500 uppercase">
+                    <span class="px-2 py-0.5 bg-slate-900 border border-slate-800 rounded">FOSS</span>
+                    <span class="px-2 py-0.5 bg-slate-900 border border-slate-800 rounded">scalability</span>
+                </div>
+            </div>
+
+            <div id="portfolio-section" class="bg-[#0f1422] border border-slate-800 rounded-xl p-6 group flex flex-col justify-between transition-all duration-300 hover:border-slate-700">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold text-cyan-400 font-mono">[06_PORTFOLIO]</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-700 group-hover:text-cyan-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2 uppercase">Casos de Sucesso</h3>
+                    <p class="font-sans text-slate-400 text-sm leading-relaxed mb-6">
+                        Aplicações em produção desenhadas sob medida para máxima velocidade, conversão e conformidade técnica. Exemplos ativos:
+                    </p>
+                    
+                    <div class="flex flex-col gap-2.5 font-mono text-xs mb-6">
+                        <a href="https://scal4r.com/" target="_blank" rel="noopener" class="flex items-center gap-1.5 text-slate-300 hover:text-cyan-400 transition-colors">
+                            <span class="text-slate-600">&gt;</span> scal4r.com
+                        </a>
+                        <a href="https://bizumatica.com.br/" target="_blank" rel="noopener" class="flex items-center gap-1.5 text-slate-300 hover:text-cyan-400 transition-colors">
+                            <span class="text-slate-600">&gt;</span> bizumatica.com.br
+                        </a>
+                        <a href="https://lecitatiba.com.br/" target="_blank" rel="noopener" class="flex items-center gap-1.5 text-slate-300 hover:text-cyan-400 transition-colors">
+                            <span class="text-slate-600">&gt;</span> lecitatiba.com.br
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="flex flex-wrap gap-2 text-[10px] font-mono text-slate-500 uppercase">
+                    <span class="px-2 py-0.5 bg-slate-900 border border-slate-800 rounded">Live_Projects</span>
+                    <span class="px-2 py-0.5 bg-slate-900 border border-slate-800 rounded">Production_Ready</span>
+                </div>
+            </div>
 
         </div>
     </section>
 
-    <!-- SEÇÃO FINAL: O Rodapé de Conexão -->
     <section class="border-t border-slate-800 bg-[#070b12] py-16 px-4 md:px-8">
         <div class="max-w-4xl mx-auto text-center font-mono">
             <h3 class="text-xl font-extrabold text-white uppercase mb-4 tracking-tight">
@@ -184,7 +187,6 @@
                     Chamar no WhatsApp_
                 </a>
             </div>
-            
         </div>
     </section>
 

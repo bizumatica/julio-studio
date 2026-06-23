@@ -10,7 +10,7 @@ disableKinds = ["taxonomy", "term", "rss", "sitemap"]
 [params]
     description = "Design, Performance Web e Automatização"
     images = ["images/card.jpg"]
-    site_version = "V1.4.0"
+    site_version = "V1.4.1"
     
     # Links das Redes Sociais e Repositórios
     whatsapp = "5511964881236"
